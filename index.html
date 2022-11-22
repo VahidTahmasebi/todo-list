@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h1>To Do List</h1></header>
+
+    <section class="todo-list">
+      <form action="">
+        <input type="text" class="todo-list__form-input" autofocus />
+        <button class="todo-list__new-todo-btn">
+          <i class="fa-solid fa-circle-plus"></i>
+        </button>
+      </form>
+      <div class="todo-list__grouping-todo">
+        <select name="grouping-todos" class="todo-list__grouping">
+          <option value="all">all</option>
+          <option value="completed">completed</option>
+          <option value="uncompleted">uncompleted</option>
+        </select>
+      </div>
+
+      <div class="todo-list__task-container">
+        <ul class="todo-list__task-todos">
+          <li class="todo-list__task-todo"></li>
+        </ul>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
