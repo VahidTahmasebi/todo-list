@@ -1,0 +1,93 @@
+@import url(//fonts.googleapis.com/css?family=Poppins);
+
+:root {
+  --nav-width: 250px;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+  --bodyColor: #f6f6f6;
+  --bodyColorDark: #1f1f3a;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #7c7c7c;
+  --mainRed: #db2777;
+  --primaryColor: #6a5be2;
+  --secondaryColor: #cde9ff;
+  --tertiaryColor: #ffe6e7;
+  --fourthColor: #ebe4f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  list-style: none;
+}
+body {
+  color: var(--mainWhite);
+  background-color: var(--bodyColorDark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-todo {
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-list_form-container {
+  display: flex;
+}
+.todo-list__form {
+  width: 25rem;
+  display: flex;
+}
+.todo-list__form-input {
+  flex: 1;
+}
+.todo-list__form-subset {
+  border: 0;
+  outline: 0;
+  background: var(--fourthColor);
+  color: var(--mainBlack);
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.todo-list__new-todo-btn {
+  color: var(--primaryColor);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.todo-list__new-todo-btn:hover {
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+}
+.todo-list__grouping-todo {
+  margin-left: 1rem;
+  width: 10rem;
+  font-weight: bold;
+  position: relative;
+}
+.todo-list__grouping-todo::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  color: var(--primaryColor);
+  pointer-events: none;
+}
+.todo-list__grouping {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  padding: 1rem;
+  color: var(--mainBlack);
+  background-color: var(--fourthColor);
+}
+.todo-list__task-container {
+  width: 25rem;
+}
