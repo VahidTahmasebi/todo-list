@@ -6,23 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <header><h1>To Do List</h1></header>
+    <header class="logo-todo"><h1>To Do List</h1></header>
 
     <section class="todo-list">
-      <form action="">
-        <input type="text" class="todo-list__form-input" autofocus />
-        <button class="todo-list__new-todo-btn">
-          <i class="fa-solid fa-circle-plus"></i>
-        </button>
-      </form>
-      <div class="todo-list__grouping-todo">
-        <select name="grouping-todos" class="todo-list__grouping">
-          <option value="all">all</option>
-          <option value="completed">completed</option>
-          <option value="uncompleted">uncompleted</option>
-        </select>
+      <div class="todo-list_form-container">
+        <form action="" class="todo-list__form">
+          <input type="text" class="todo-list__form-subset todo-list__form-input" autofocus />
+          <button class="todo-list__form-subset todo-list__new-todo-btn">
+            <i class="fa-solid fa-circle-plus"></i>
+          </button>
+        </form>
+        <div class="todo-list__grouping-todo">
+          <select name="grouping-todos" class="todo-list__grouping">
+            <option value="all">all</option>
+            <option value="completed">completed</option>
+            <option value="uncompleted">uncompleted</option>
+          </select>
+        </div>
       </div>
 
       <div class="todo-list__task-container">
