@@ -3,6 +3,7 @@ const newTodoBtn = document.querySelector(".todo-list__new-todo-btn");
 const todoList = document.querySelector(".todo-list__task-todos");
 const filter = document.querySelector(".todo-list__filter");
 
+document.addEventListener("DOMContentLoaded", getLocalTodos);
 newTodoBtn.addEventListener("click", addTodo);
 todoList.addEventListener("click", checkRemove);
 filter.addEventListener("change", filterTodo);
@@ -22,6 +23,8 @@ function addTodo(e) {
   todoDiv.innerHTML = todoValue;
   // append to todo list
   todoList.appendChild(todoDiv);
+  // save todo in local
+  saveLocalTodos(todoInput.value);
   // clear input
   todoInput.value = "";
 }
@@ -38,6 +41,7 @@ function checkRemove(e) {
   } else if (resolveClassList[1] === "fa-trash-can") {
     const todo = itemTarget.parentElement.parentElement;
     todo.remove(todo);
+    removeLocalTodos(todo);
   }
 }
 // filter todos
@@ -51,7 +55,7 @@ function filterTodo(e) {
     switch (value) {
       case "all":
         todo.style.display = "flex";
-        
+
         break;
       case "completed":
         if (todo.classList.contains("todo-completed")) {
@@ -72,4 +76,34 @@ function filterTodo(e) {
         return;
     }
   });
+}
+// get input values ​​for locale
+function saveLocalTodos(todo) {
+  let savedTodos = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
+  savedTodos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(savedTodos));
+}
+// get todo list structure in local
+function getLocalTodos() {
+  let savedTodos = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
+
+  savedTodos.forEach((todo) => {
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo-list__new-todo");
+
+    const newTodo = `
+      <li class="todo-item">${todo}</li>
+      <span><i class="fa-regular fa-square-check"></i></span>
+      <span><i class="fa-regular fa-trash-can"></i></span>
+  `;
+    todoDiv.innerHTML = newTodo;
+
+    todoList.appendChild(todoDiv);
+  });
+}
+// get deleted todo in local
+function removeLocalTodos(removedTodo) {
+  let savedTodos = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
+  const filteredTodos = savedTodos.filter((todo) => todo !== removedTodo.children[0].innerText);
+  localStorage.setItem("todos", JSON.stringify(filteredTodos));
 }
